@@ -52,11 +52,11 @@ return {
           loaded = true
         end
       end
-      check()
+      vim.schedule(check)
       vim.api.nvim_create_autocmd("DirChanged", {
         callback = function()
           if not loaded then
-            check()
+            vim.schedule(check)
           end
         end,
       })

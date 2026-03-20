@@ -115,6 +115,13 @@ function M.get_extra(source, modname)
     recommended = M.wants(recommended)
   end
 
+  -- language extras that are disabled because a conflict with another extra is enabled are not recommended
+  local defaults = LazyVim.config.get_defaults()
+  local def = defaults[modname]
+  if def and def.enabled == false and vim.startswith(modname, "lazyvim.plugins.extras.lang.") then
+    recommended = false
+  end
+
   ---@type LazyExtra
   return {
     source = source,

@@ -28,6 +28,7 @@ M.deprecated_extras = {
 }
 M.renamed_extras = {
   ["lazyvim.plugins.extras.lang.omnisharp"] = "lazyvim.plugins.extras.lang.dotnet",
+  ["lazyvim.plugins.extras.formatting.biome"] = "lazyvim.plugins.extras.lang.typescript.biome",
 }
 
 M.deprecated_modules = {}

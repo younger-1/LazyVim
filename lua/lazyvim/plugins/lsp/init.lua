@@ -99,6 +99,12 @@ return {
                 desc = "Next Reference", enabled = function() return Snacks.words.is_enabled() end },
               { "<a-p>", function() Snacks.words.jump(-vim.v.count1, true) end, has = "documentHighlight",
                 desc = "Prev Reference", enabled = function() return Snacks.words.is_enabled() end },
+              {
+                "<leader>co",
+                LazyVim.lsp.action["source.organizeImports"],
+                desc = "Organize Imports",
+                code_action = "source.organizeImports",
+              },
             },
           },
           stylua = { enabled = false },

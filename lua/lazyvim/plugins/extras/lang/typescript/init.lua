@@ -57,11 +57,6 @@ return {
           },
           keys = {
             {
-              "<leader>co",
-              LazyVim.lsp.action["source.organizeImports"],
-              desc = "Organize Imports",
-            },
-            {
               "<leader>cu",
               LazyVim.lsp.action["source.removeUnused.ts"],
               desc = "Remove unused imports",
@@ -135,11 +130,6 @@ return {
                 })
               end,
               desc = "File References",
-            },
-            {
-              "<leader>co",
-              LazyVim.lsp.action["source.organizeImports"],
-              desc = "Organize Imports",
             },
             {
               "<leader>cM",

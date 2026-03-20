@@ -26,10 +26,6 @@ local supported = {
 }
 
 return {
-  {
-    "mason-org/mason.nvim",
-    opts = { ensure_installed = { "biome" } },
-  },
 
   {
     "neovim/nvim-lspconfig",

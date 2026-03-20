@@ -26,6 +26,11 @@ local supported = {
 }
 
 return {
+  recommended = function()
+    return LazyVim.extras.wants({
+      root = { "biome.json", "biome.jsonc" },
+    })
+  end,
 
   {
     "neovim/nvim-lspconfig",

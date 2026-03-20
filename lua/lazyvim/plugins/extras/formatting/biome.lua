@@ -10,6 +10,7 @@ end
 local supported = {
   "astro",
   "css",
+  "scss",
   "graphql",
   -- "html",
   "javascript",
@@ -28,6 +29,16 @@ return {
   {
     "mason-org/mason.nvim",
     opts = { ensure_installed = { "biome" } },
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        ---@type lspconfig.settings.biome
+        biome = {},
+      },
+    },
   },
 
   {

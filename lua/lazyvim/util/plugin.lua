@@ -133,15 +133,18 @@ function M.single_import(spec)
   end
   spec.name = modname
   spec.import = function()
-    package.loaded[modname] = nil
-    local ok, mod, foo = pcall(require, modname) ---@type boolean, table?, unknown
-    if ok and type(mod) == "table" then
+    local modinfo = vim.loader.find(modname)[1]
+    local modpath = modinfo and modinfo.modpath
+    local mod, err = loadfile(modpath)
+    if mod then
+      local ret, foo = mod()
       if foo then
         return nil, "Spec module returned more than one value. Expected a single value."
       end
-      return mod
+      return ret
+    else
+      return nil, err
     end
-    return nil, mod
   end
 end
 

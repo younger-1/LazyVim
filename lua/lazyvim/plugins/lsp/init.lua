@@ -103,7 +103,13 @@ return {
                 "<leader>co",
                 LazyVim.lsp.action["source.organizeImports"],
                 desc = "Organize Imports",
-                code_action = "source.organizeImports",
+                has = "codeAction",
+                enabled = function(buf)
+                  local code_actions = vim.tbl_filter(function(action)
+                    return action:find("^source%.organizeImports%.?$")
+                  end, LazyVim.lsp.code_actions({ bufnr = buf }))
+                  return #code_actions > 0
+                end
               },
             },
           },

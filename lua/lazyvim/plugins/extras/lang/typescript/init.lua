@@ -1,3 +1,13 @@
+if lazyvim_docs then
+  -- LSP Server to use for TypeScript.
+  ---@type "vtsls" | "tsgo"
+  vim.g.lazyvim_ts_lsp = "vtsls" -- currently the default
+
+  -- To use the newer, much faster `tsgo` LSP server, either:
+  -- * enable the `tsgo` extra, or
+  -- * set `vim.g.lazyvim_ts_lsp = "tsgo"` in your `options.lua`
+end
+
 local extra = LazyVim.config.register_defaults("ts_lsp", {
   { name = "vtsls", extra = "lang.typescript.vtsls" },
   { name = "tsgo", extra = "lang.typescript.tsgo" },
